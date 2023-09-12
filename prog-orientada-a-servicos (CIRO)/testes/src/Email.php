@@ -15,6 +15,12 @@ final class Email
         return $this->endereco;
     }
 
+    public function getUsuario(): string
+    {
+        return
+        explode("@", $endereco)[0];
+    }
+
     private static function validar(string $endereco)
     {
         // Validação burra, apenas verifica se a srting contém um @

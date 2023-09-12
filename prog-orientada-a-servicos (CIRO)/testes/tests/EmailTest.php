@@ -4,11 +4,12 @@ require __DIR__ . '\..\src\Email.php';
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHOPUnit\Framework\Attributes\CoversClass;
 
-
+#[CoversClass('Email')]
 final class EmailTest extends TestCase
 {
-    public function EnderecosValidosProvider(): array
+    public static function EnderecosValidosProvider(): array
     {
         return[
             ['alice@exemplo.com'],
@@ -18,6 +19,15 @@ final class EmailTest extends TestCase
     }
     #[DataProvider('enderecosValidosProvider')]
     public function testCriarComEnderecoValido($endereco): void
+    {
+        // Ação
+        $email = new Email($endereco);
+
+        // Asserção
+        $this->assertSame($endereco, $email->getEndereco());
+    }
+    #[DataProvider('enderecosValidosProvider')]
+    public function testGetUsuario($endereco): void 
     {
         // Ação
         $email = new Email($endereco);
