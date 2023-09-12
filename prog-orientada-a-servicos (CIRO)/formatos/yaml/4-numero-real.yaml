@@ -1,0 +1,3 @@
+3.14  # Qualquer valor com `.` é um número real
+# .25 # Podemos omitir o 0 (zero) antes ou depois do ponto.
+# 2.  # E ainda assim teremos um float em vez de um int.
